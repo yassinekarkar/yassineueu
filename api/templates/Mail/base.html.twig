@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="SSH Engineering SAS">
+
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('mail/main2.css')}}">
+        {% endblock %}
+
+    </head>
+
+    <body>
+        <div class="row">
+            <div class="col-md-12"></div>
+        </div>
+        <div class="row" style="margin-top: 20px">
+            <div class="col-md-1">
+                <p class="mail-paragraph1">
+                    Bonjour,
+                </p>
+            </div>
+            {% block content %}{% endblock %}
+            <div class="col-md-1">
+                <p class="mail-paragraph1" style="padding-top: 20px">
+                    Cet e-mail est envoyé de façon automatique. Il n'est donc pas possible d'y répondre en retour.<br/><br/>
+                    Cordialement,<br/>
+                    Equipe
+                    <a href="#{#{{ front_host }}#}">
+                        <b>ElBill</b>
+                </p>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div
+                class="col-md-12">{#            <img  style="width: 150px;float: left;" class="deviceWidth" src="{{ logo }}" alt="logo">#}
+            </div>
+        </div>
+
+    </body>
+</html>

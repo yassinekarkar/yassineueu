@@ -1,0 +1,180 @@
+
+services:
+    
+    App\Manager\BackUserManager:
+        public: true
+        class: App\Manager\BackUserManager
+        arguments: 
+            [
+                '@doctrine',
+                '@manager.exception', 
+                '@request_stack',
+                '@SSH\MsJwtBundle\Manager\MailManager',
+                '%back_host%'
+            ]
+
+
+    App\Manager\BackGroupManager:
+        public: true
+        class: App\Manager\BackGroupManager
+        arguments: ['@doctrine', '@manager.exception', '@request_stack']
+        
+        
+    App\Manager\CurrencyManager:
+        public: true
+        class: App\Manager\CurrencyManager
+        arguments:
+            [
+                '@doctrine',
+                '@manager.exception',
+                '@request_stack'
+            ]
+            
+    App\Manager\CountryManager:
+        public: true
+        class: App\Manager\CountryManager
+        arguments:
+            [
+                '@doctrine',
+                '@manager.exception',
+                '@request_stack',
+                '@App\Manager\CurrencyManager'
+            ]
+
+    App\Manager\CompanyManager:
+        public: true
+        class: App\Manager\CompanyManager
+        arguments:
+            [
+                '@doctrine',
+                '@manager.exception',
+                '@request_stack',
+                '@App\Manager\CountryManager',
+                '@SSH\MsJwtBundle\Manager\MailManager',
+                '%front_host%'
+            ]
+
+    App\Manager\PaymentConditionManager:
+        public: true
+        class: App\Manager\PaymentConditionManager
+        arguments:
+          [
+                  '@doctrine',
+                  '@manager.exception',
+                  '@request_stack',
+                  '@App\Manager\CompanyManager'
+          ]
+    App\Manager\UnityManager:
+            public: true
+            class: App\Manager\UnityManager
+            arguments:
+              [
+                      '@doctrine',
+                      '@manager.exception',
+                      '@request_stack',
+                      '@App\Manager\CompanyManager'
+              ]
+    App\Manager\IbanManager:
+        public: true
+        class: App\Manager\IbanManager
+        arguments:
+          [
+                  '@doctrine',
+                  '@manager.exception',
+                  '@request_stack',
+                  '@App\Manager\CompanyManager'
+          ]
+
+    App\Manager\VatManager:
+        public: true
+        class: App\Manager\VatManager
+        arguments:
+          [
+                  '@doctrine',
+                  '@manager.exception',
+                  '@request_stack',
+                  '@App\Manager\CompanyManager'
+          ]
+
+    App\Manager\ProductManager:
+      public: true
+      class: App\Manager\ProductManager
+      arguments:
+        [
+          '@doctrine',
+          '@manager.exception',
+          '@request_stack',
+          '@App\Manager\CompanyManager'
+        ]
+
+    App\Manager\QuoteManager:
+      public: true
+      class: App\Manager\QuoteManager
+      arguments:
+        [
+          '@doctrine',
+          '@manager.exception',
+          '@request_stack',
+          '@App\Manager\CompanyManager'
+        ]
+
+    App\Manager\ClientManager:
+      public: true
+      class: App\Manager\ClientManager
+      arguments:
+        [
+          '@doctrine',
+          '@manager.exception',
+          '@request_stack',
+          '@App\Manager\CompanyManager'
+        ]
+
+    App\Manager\QuoteProductManager:
+      public: true
+      class: App\Manager\QuoteProductManager
+      arguments:
+        [
+          '@doctrine',
+          '@manager.exception',
+          '@request_stack'
+        ]
+
+    App\Manager\ConfigQuoteManager:
+      public: true
+      class: App\Manager\ConfigQuoteManager
+      arguments:
+        [
+          '@doctrine',
+          '@manager.exception',
+          '@request_stack'
+        ]
+
+    App\Manager\LanguageManager:
+      public: true
+      class: App\Manager\LanguageManager
+      arguments:
+        [
+          '@doctrine',
+          '@manager.exception',
+          '@request_stack'
+        ]
+    App\Manager\FactureManager:
+      public: true
+      class: App\Manager\FactureManager
+      arguments:
+        [
+          '@doctrine',
+          '@manager.exception',
+          '@request_stack',
+          '@App\Manager\CompanyManager'
+        ]
+
+    App\Manager\FactureProductManager:
+      public: true
+      class: App\Manager\FactureProductManager
+      arguments:
+        [
+          '@doctrine',
+          '@manager.exception',
+          '@request_stack'
+        ]

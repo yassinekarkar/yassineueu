@@ -1,0 +1,22 @@
+{% extends "Mail/base.html.twig" %}
+
+{% block content %}
+    <p class="mail-paragraph2" style="padding-top: 20px">
+        
+        {{ 'hi'|trans()}} {{ data.name }}, {{ 'welcome_to'|trans() }}
+        <a href="{{ data.host }}">
+            <b>{{ data.host }}</b>
+        </a>, {{ 'your_account_is_approved'|trans() }}
+        <br/>
+        <br/>
+
+        <b>{{ 'mail_address'|trans() }} :</b>
+        {{ data.mail }}<br/><br/>
+
+        <a href="{{ data.host }}">
+            <b>{{ 'click_here_to_login'|trans() }}</b>
+        </a>
+
+
+    </p>
+{% endblock %}

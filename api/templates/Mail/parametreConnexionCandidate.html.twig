@@ -1,0 +1,41 @@
+{% extends "Mail/baseCandidate.html.twig" %}
+
+{% block content %}
+    <!--<p class="mail-paragraph2" style="padding-top: 20px">
+                                                                                                                    <span style="font-weight:bold;font-size:32px;">Check your email !</span>
+                                                                                                                    <br/><br/>
+                                                                                                            </p>
+                                                                                                            <p>We sent an account verification email to
+    {{ data.mail }}
+</p>
+<p>Please click the link in the email in order to verify your account and continue.</p>
+<br>
+<p>You can close this page now.</p>-->
+
+    <p class="mail-paragraph2" style="padding-top: 20px">
+        <span style="font-weight:bold;font-size:32px;">Verify your jobzioo account</span>
+        <br/><br/>
+    </p>
+    <p><img src="https://jobzioo.com/wp-content/uploads/2021/08/newedhvfe.png" style="width: 150px;"><span style="margin-top: 22px;
+                                                                                                           position: absolute;
+                                                                                                           font-size: 15px;">
+            <b>JOBZIOO</b>
+        </span>
+    </p>
+    <br>
+    <b>Please verify your account</b>
+
+    <p>Please verify your registration for
+        {{data.mail}}
+        by clicking the link below</p>
+    <br>
+    <p>
+        <a href="{{ data.host }}" style="text-decoration:underline;">
+            <b>Verify Account</b>
+        </a>
+    </p>
+    <p style="text-decoration:underline;color:blue;">
+        {{ data.host }}
+    </p>
+
+{% endblock %}

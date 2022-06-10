@@ -1,0 +1,29 @@
+security:
+    providers:
+        ssh_common_user_provider:
+            entity:
+                class: SSH\MsJwtBundle\Entity\ApiUser
+                property: token
+    role_hierarchy:        
+        ROLE_USER:        ROLE_USER      
+        ROLE_BACK:       [ROLE_BACK, ROLE_USER]
+        ROLE_FRONT:      [ROLE_FRONT, ROLE_USER]
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: lazy
+            provider: ssh_common_user_provider
+
+            guard:
+                authenticators:
+                    - SSH\MsJwtBundle\Security\TokenAuthenticator
+            stateless: true        
+
+    access_control:
+        - { path: ^/front/countries/choices, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/front/validatesubscription, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/front/subscribe, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/tokenauthenticate, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/authenticate, roles: IS_AUTHENTICATED_ANONYMOUSLY }

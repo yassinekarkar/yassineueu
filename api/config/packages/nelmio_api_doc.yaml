@@ -1,0 +1,33 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: 'EBILL documentation'
+#            description: This is an awesome app!
+            version: 1.0.0
+        securityDefinitions:
+            Bearer:
+                type: apiKey
+                description: 'Value: {jwt}'
+                name: X-AUTH-TOKEN
+                in: header
+        security:
+            - Bearer: []  
+    models: { use_jms: false }
+    areas:
+        default:
+            path_patterns:
+                - ^/authenticate
+                - ^/default
+        back:
+            path_patterns:
+                - ^/authenticate
+                - ^/back
+#        partner:
+#            path_patterns:
+#                - ^/authenticate
+#                - ^/front
+#                
+#        candidate:
+#            path_patterns:
+#                - ^/authenticate
+#                - ^/mobile
